@@ -18,7 +18,6 @@ public class EnemyPathfinding : MonoBehaviour
     void FixedUpdate()
     {
         Move();
-        Debug.Log(moveDirection);
     }
 
     void Move()
