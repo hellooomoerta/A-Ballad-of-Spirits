@@ -20,6 +20,7 @@ public class Sword : MonoBehaviour
         playerControls = new PlayerControls();
         playerController = GetComponentInParent<PlayerController>();
         activeWeapon = GetComponentInParent<ActiveWeapon>();
+        swordCollider.gameObject.SetActive(false);
     }
 
     void Start()
