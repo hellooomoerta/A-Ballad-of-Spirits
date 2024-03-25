@@ -24,7 +24,7 @@ public class EnemyPathfinding : MonoBehaviour
 
     void Move()
     {
-        if (knockback.gettingKnockedBack)
+        if (knockback.GettingKnockedBack)
         {
             return;
         }
