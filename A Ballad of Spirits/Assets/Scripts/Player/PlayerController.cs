@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : Singleton<PlayerController>
 {
     public bool FacingLeft { get { return facingLeft; } }
-    public static PlayerController Instance;
 
     [SerializeField] float moveSpeed = 1f;
     [SerializeField] float dashSpeed = 4f;
@@ -21,9 +20,10 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rb;
     PlayerControls playerControls;
 
-    private void Awake()
+    protected override void Awake()
     {
-        Instance = this;
+        base.Awake();
+
         myAnimator = GetComponent<Animator>();
         mySpriteRenderer = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
