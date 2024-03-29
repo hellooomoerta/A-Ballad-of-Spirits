@@ -5,13 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class AreaExit : MonoBehaviour
 {
-    [SerializeField] string SceneToLoad;
+    [SerializeField] string sceneToLoad;
+    [SerializeField] string sceneTransitionName;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.GetComponent<PlayerController>())
         {
-            SceneManager.LoadScene(SceneToLoad);
+            SceneManager.LoadScene(sceneToLoad);
+            SceneManagement.Instance.SetTransitionName(sceneTransitionName);
         }
     }
 }
