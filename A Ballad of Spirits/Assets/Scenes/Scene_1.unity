@@ -35808,6 +35808,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1236456752}
   - component: {fileID: 1236456753}
+  - component: {fileID: 1236456754}
   m_Layer: 5
   m_Name: Active Inventory
   m_TagString: Untagged
@@ -35863,6 +35864,18 @@ MonoBehaviour:
   m_Spacing: {x: 12, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
+--- !u!114 &1236456754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1236456751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17561d3f37565c943a7c17c40d780c1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1273163592
 GameObject:
   m_ObjectHideFlags: 0
