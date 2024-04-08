@@ -2,30 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Sword : MonoBehaviour
+public class Sword : MonoBehaviour, IWeapon
 {
+    
+    
+    [SerializeField] float swordAttackCD = 0.2f;
     [SerializeField] GameObject slashEffectPrefab;
     [SerializeField] Transform SlashAnimSpawnPoint;
     [SerializeField] Transform swordCollider;
 
     GameObject slashAnim;
     Animator myAnimator;
-    PlayerControls playerControls;
     PlayerController playerController;
     ActiveWeapon activeWeapon;
 
     private void Awake()
     {
         myAnimator = GetComponent<Animator>();
-        playerControls = new PlayerControls();
         playerController = GetComponentInParent<PlayerController>();
         activeWeapon = GetComponentInParent<ActiveWeapon>();
         swordCollider.gameObject.SetActive(false);
-    }
-
-    void Start()
-    {
-        playerControls.Combat.Attack.started += _ => Attack();
     }
 
     private void Update()
@@ -33,13 +29,20 @@ public class Sword : MonoBehaviour
         MouseFollowWithOffset();
     }
 
-    void Attack()
+    public void Attack()
     {
+        //isAttacking = true;
         myAnimator.SetTrigger("Attack");
         swordCollider.gameObject.SetActive(true);
-
         slashAnim = Instantiate(slashEffectPrefab, SlashAnimSpawnPoint.position, Quaternion.identity);
         slashAnim.transform.parent = this.transform.parent;
+        StartCoroutine(AttackCDRoutine());
+    }
+
+    IEnumerator AttackCDRoutine()
+    {
+        yield return new WaitForSeconds(swordAttackCD);
+        ActiveWeapon.Instance.ToggleIsAttacking(false);
     }
 
     public void DoneAttackingAnimEvent()
@@ -82,10 +85,5 @@ public class Sword : MonoBehaviour
             activeWeapon.transform.rotation = Quaternion.Euler(0, 0, 0);
             swordCollider.transform.rotation = Quaternion.Euler(0, 0, 0);
         }
-    }
-
-    private void OnEnable()
-    {
-        playerControls.Enable();
     }
 }
