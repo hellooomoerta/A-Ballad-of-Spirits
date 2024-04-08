@@ -10,6 +10,7 @@ public class PlayerController : Singleton<PlayerController>
     [SerializeField] float dashSpeed = 4f;
     [SerializeField] float dashTime = .2f;
     [SerializeField] TrailRenderer myTrailRenderer;
+    [SerializeField] Transform weaponCollider;
 
     float defaultMoveSpeed;
     bool facingLeft = false;
@@ -43,8 +44,13 @@ public class PlayerController : Singleton<PlayerController>
 
     private void FixedUpdate()
     {
+        AdjustPlayerFacingDirection();
         Move();
-        FlipSprite();
+    }
+
+    public Transform GetWeaponCollider()
+    {
+        return weaponCollider;
     }
 
     void PlayerInput()
@@ -60,7 +66,7 @@ public class PlayerController : Singleton<PlayerController>
         rb.MovePosition(rb.position + movement * (moveSpeed * Time.fixedDeltaTime));
     }
 
-    void FlipSprite()
+    void AdjustPlayerFacingDirection()
     {
         Vector3 mousePos = Input.mousePosition;
         Vector3 playerPosition = Camera.main.WorldToScreenPoint(transform.position);

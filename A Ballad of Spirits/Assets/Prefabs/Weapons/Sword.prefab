@@ -119,7 +119,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6ac41eead98833409a52bc6ecea51fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swordAttackCD: 0.1
   slashEffectPrefab: {fileID: 1798004366644533855, guid: 9883917352907ce40b811c8edef9b7ec, type: 3}
-  SlashAnimSpawnPoint: {fileID: 0}
-  swordCollider: {fileID: 0}
+  slashAnimSpawnPoint: {fileID: 0}
+  swordAttackCD: 0.2

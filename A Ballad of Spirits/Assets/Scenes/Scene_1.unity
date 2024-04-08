@@ -12382,7 +12382,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71a1ea5de1ad52948a1d25c05c96b6f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentActiveWeapon: {fileID: 0}
 --- !u!1 &504818502
 GameObject:
   m_ObjectHideFlags: 0
@@ -22224,6 +22223,7 @@ MonoBehaviour:
   dashSpeed: 4
   dashTime: 0.2
   myTrailRenderer: {fileID: 1134762195}
+  weaponCollider: {fileID: 1436719067}
 --- !u!50 &863062768
 Rigidbody2D:
   serializedVersion: 4
@@ -36154,7 +36154,7 @@ GameObject:
   - component: {fileID: 1436719068}
   - component: {fileID: 1436719069}
   m_Layer: 0
-  m_Name: Sword Collider
+  m_Name: Weapon Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
