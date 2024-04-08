@@ -16,6 +16,7 @@ public class ActiveInventory : MonoBehaviour
     private void Start()
     {
         playerControls.Inventory.Keyboard.performed += ctx => ToggleActiveSlot((int)ctx.ReadValue<float>());
+        ToggleActiveHighlight(0); //Ser till att spelaren startar med svärdet spawnat
     }
 
     private void OnEnable()
@@ -44,6 +45,20 @@ public class ActiveInventory : MonoBehaviour
 
     void ChangeActiveWeapon()
     {
-        Debug.Log(transform.GetChild(activeSlotIndexNum).GetComponent<InventorySlot>().GetWeaponInfo().weaponPrefab.name);
+        if (ActiveWeapon.Instance.CurrentActiveWeapon != null)
+        {
+            Destroy(ActiveWeapon.Instance.CurrentActiveWeapon.gameObject);
+        }
+
+        if (!transform.GetChild(activeSlotIndexNum).GetComponentInChildren<InventorySlot>())
+        {
+            ActiveWeapon.Instance.WeaponNull();
+            return;
+        }
+
+        GameObject weaponToSpawn = transform.GetChild(activeSlotIndexNum).GetComponentInChildren<InventorySlot>().GetWeaponInfo().weaponPrefab; //Tilldelar weaponToSpawn det aktiva vapnet
+        GameObject newWeapon = Instantiate(weaponToSpawn, ActiveWeapon.Instance.transform.position, Quaternion.identity); //Instansierar det aktiva vapnet
+        newWeapon.transform.parent = ActiveWeapon.Instance.transform; //Lägger det nya vapnet som ett barn till ActiveWeapon i hierarkin
+        ActiveWeapon.Instance.NewWeapon(newWeapon.GetComponent<MonoBehaviour>());
     }
 }
