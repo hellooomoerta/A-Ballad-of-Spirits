@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class UIFade : Singleton<UIFade>
 {
     [SerializeField] Image fadeScreen;
-    [SerializeField] float fadeSpeed;
+    [SerializeField] float fadeSpeed = 1f;
 
     IEnumerator fadeRoutine;
 
@@ -37,7 +37,7 @@ public class UIFade : Singleton<UIFade>
         while(!Mathf.Approximately(fadeScreen.color.a, targetAlpha))
         {
             float alpha = Mathf.MoveTowards(fadeScreen.color.a, targetAlpha, fadeSpeed * Time.deltaTime);
-            fadeScreen.color = new Color(fadeScreen.color.r, fadeScreen.color.g, fadeScreen.color.b);
+            fadeScreen.color = new Color(fadeScreen.color.r, fadeScreen.color.g, fadeScreen.color.b, alpha);
             yield return null;
         }
     }
