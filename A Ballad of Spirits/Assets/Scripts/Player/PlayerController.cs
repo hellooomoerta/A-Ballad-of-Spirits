@@ -11,6 +11,7 @@ public class PlayerController : Singleton<PlayerController>
     [SerializeField] float dashTime = .2f;
     [SerializeField] TrailRenderer myTrailRenderer;
     [SerializeField] Transform weaponCollider;
+    [SerializeField] Transform slashAnimSpawnPoint;
 
     float defaultMoveSpeed;
     bool facingLeft = false;
@@ -51,6 +52,11 @@ public class PlayerController : Singleton<PlayerController>
     public Transform GetWeaponCollider()
     {
         return weaponCollider;
+    }
+
+    public Transform GetSlashAnimSpawnPoint()
+    {
+        return slashAnimSpawnPoint;
     }
 
     void PlayerInput()

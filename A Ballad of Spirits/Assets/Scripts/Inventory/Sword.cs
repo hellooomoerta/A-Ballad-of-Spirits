@@ -21,7 +21,7 @@ public class Sword : MonoBehaviour, IWeapon
     private void Start()
     {
         weaponCollider = PlayerController.Instance.GetWeaponCollider();
-        slashAnimSpawnPoint = GameObject.Find("SlashAnimSpawnPoint").transform;
+        slashAnimSpawnPoint = PlayerController.Instance.GetSlashAnimSpawnPoint();
     }
 
     private void Update()
@@ -31,7 +31,6 @@ public class Sword : MonoBehaviour, IWeapon
 
     public void Attack()
     {
-        //isAttacking = true;
         myAnimator.SetTrigger("Attack");
         weaponCollider.gameObject.SetActive(true);
         slashAnim = Instantiate(slashEffectPrefab, slashAnimSpawnPoint.position, Quaternion.identity);
@@ -75,16 +74,16 @@ public class Sword : MonoBehaviour, IWeapon
         Vector3 mousePos = Input.mousePosition;
         Vector3 playerPosition = Camera.main.WorldToScreenPoint(PlayerController.Instance.transform.position);
 
-        //float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
+        float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
 
         if (mousePos.x < playerPosition.x)
         {
-            ActiveWeapon.Instance.transform.rotation = Quaternion.Euler(0, -180, 0);
+            ActiveWeapon.Instance.transform.rotation = Quaternion.Euler(0, -180, angle);
             weaponCollider.transform.rotation = Quaternion.Euler(0, -180, 0);
         }
         else
         {
-            ActiveWeapon.Instance.transform.rotation = Quaternion.Euler(0, 0, 0);
+            ActiveWeapon.Instance.transform.rotation = Quaternion.Euler(0, 0, angle);
             weaponCollider.transform.rotation = Quaternion.Euler(0, 0, 0);
         }
     }

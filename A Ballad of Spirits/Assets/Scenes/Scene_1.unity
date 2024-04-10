@@ -22224,6 +22224,7 @@ MonoBehaviour:
   dashTime: 0.2
   myTrailRenderer: {fileID: 1134762195}
   weaponCollider: {fileID: 1436719067}
+  slashAnimSpawnPoint: {fileID: 18226969}
 --- !u!50 &863062768
 Rigidbody2D:
   serializedVersion: 4
