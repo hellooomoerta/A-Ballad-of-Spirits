@@ -58,6 +58,7 @@ public class ActiveInventory : MonoBehaviour
 
         GameObject weaponToSpawn = transform.GetChild(activeSlotIndexNum).GetComponentInChildren<InventorySlot>().GetWeaponInfo().weaponPrefab; //Tilldelar weaponToSpawn det aktiva vapnet
         GameObject newWeapon = Instantiate(weaponToSpawn, ActiveWeapon.Instance.transform.position, Quaternion.identity); //Instansierar det aktiva vapnet
+        ActiveWeapon.Instance.transform.rotation = Quaternion.Euler(0, 0, 0);
         newWeapon.transform.parent = ActiveWeapon.Instance.transform; //Lägger det nya vapnet som ett barn till ActiveWeapon i hierarkin
         ActiveWeapon.Instance.NewWeapon(newWeapon.GetComponent<MonoBehaviour>());
     }
