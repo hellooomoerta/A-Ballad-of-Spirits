@@ -4,8 +4,15 @@ using UnityEngine;
 
 public class Bow : MonoBehaviour, IWeapon
 {
+    [SerializeField] WeaponSO weaponInfo;
+
     public void Attack()
     {
-        ActiveWeapon.Instance.ToggleIsAttacking(false);
+
+    }
+
+    public WeaponSO GetWeaponInfo()
+    {
+        return weaponInfo;
     }
 }

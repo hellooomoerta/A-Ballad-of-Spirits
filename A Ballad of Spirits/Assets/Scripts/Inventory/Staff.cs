@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Staff : MonoBehaviour, IWeapon
 {
+    [SerializeField] WeaponSO weaponInfo;
 
     private void Update()
     {
@@ -12,7 +13,7 @@ public class Staff : MonoBehaviour, IWeapon
 
     public void Attack()
     {
-        ActiveWeapon.Instance.ToggleIsAttacking(false);
+
     }
 
     void MouseFollowWithOffset()
@@ -30,5 +31,10 @@ public class Staff : MonoBehaviour, IWeapon
         {
             ActiveWeapon.Instance.transform.rotation = Quaternion.Euler(0, 0, angle);
         }
+    }
+
+    public WeaponSO GetWeaponInfo()
+    {
+        return weaponInfo;
     }
 }

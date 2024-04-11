@@ -8,6 +8,7 @@ public class Sword : MonoBehaviour, IWeapon
     [SerializeField] GameObject slashEffectPrefab;
     [SerializeField] Transform slashAnimSpawnPoint;
     [SerializeField] float swordAttackCD = 0.2f;
+    [SerializeField] WeaponSO weaponInfo;
 
     Transform weaponCollider;
     Animator myAnimator;
@@ -29,19 +30,17 @@ public class Sword : MonoBehaviour, IWeapon
         MouseFollowWithOffset();
     }
 
+    public WeaponSO GetWeaponInfo()
+    {
+        return weaponInfo;
+    }
+
     public void Attack()
     {
         myAnimator.SetTrigger("Attack");
         weaponCollider.gameObject.SetActive(true);
         slashAnim = Instantiate(slashEffectPrefab, slashAnimSpawnPoint.position, Quaternion.identity);
         slashAnim.transform.parent = this.transform.parent;
-        StartCoroutine(AttackCDRoutine());
-    }
-
-    IEnumerator AttackCDRoutine()
-    {
-        yield return new WaitForSeconds(swordAttackCD);
-        ActiveWeapon.Instance.ToggleIsAttacking(false);
     }
 
     public void DoneAttackingAnimEvent()
@@ -73,8 +72,6 @@ public class Sword : MonoBehaviour, IWeapon
     {
         Vector3 mousePos = Input.mousePosition;
         Vector3 playerPosition = Camera.main.WorldToScreenPoint(PlayerController.Instance.transform.position);
-
-        //float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
 
         if (mousePos.x < playerPosition.x)
         {
