@@ -79,6 +79,7 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
         {
             AttackCooldown();
             (CurrentActiveWeapon as IWeapon).Attack();
+            StopAttacking();
         }
     }
 }

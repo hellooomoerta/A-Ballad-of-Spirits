@@ -22,14 +22,21 @@ public class Bow : MonoBehaviour, IWeapon
     public void Attack()
     {
         myAnimator.SetTrigger(FIRE_HASH);
-        int multishot = Random.Range(1, 100);
+        int multishot = Random.Range(1, 4);
 
-        if (multishot <= 66)
+        if (multishot == 1)
         {
             GameObject newArrow = Instantiate(arrowPrefab, arrowSpawnpoint.position, ActiveWeapon.Instance.transform.rotation);
             newArrow.GetComponent<Projectile>().UpdateWeaponInfo(weaponInfo);
         }
-        else if (multishot >= 67)
+        else if (multishot == 2)
+        {
+            GameObject newArrow = Instantiate(arrowPrefab, arrowSpawnpoint.position, ActiveWeapon.Instance.transform.rotation);
+            newArrow.GetComponent<Projectile>().UpdateWeaponInfo(weaponInfo);
+            GameObject newArrow2 = Instantiate(arrowPrefab, arrowSpawnpoint2.position, ActiveWeapon.Instance.transform.rotation);
+            newArrow2.GetComponent<Projectile>().UpdateWeaponInfo(weaponInfo);
+        }
+        else if (multishot == 3)
         {
             GameObject newArrow = Instantiate(arrowPrefab, arrowSpawnpoint.position, ActiveWeapon.Instance.transform.rotation);
             newArrow.GetComponent<Projectile>().UpdateWeaponInfo(weaponInfo);
