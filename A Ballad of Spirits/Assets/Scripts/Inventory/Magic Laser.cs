@@ -4,15 +4,57 @@ using UnityEngine;
 
 public class MagicLaser : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private float laserGrowTime = 2f;
+
+    private float laserRange;
+
+    private SpriteRenderer spriteRenderer;
+    private CapsuleCollider2D myCapsuleCollider;
+
+    private void Awake()
     {
-        
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        myCapsuleCollider = GetComponent<CapsuleCollider2D>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        LaserFaceMouse();
+    }
+
+    public void UpdateLaserRange(float laserRange)
+    {
+        this.laserRange = laserRange;
+        StartCoroutine(IncreaseLaserRangeRoutine());
+    }
+
+    private IEnumerator IncreaseLaserRangeRoutine()
+    {
+        float timePassed = 0f;
+
+        while (spriteRenderer.size.x < laserRange)
+        {
+            timePassed += Time.deltaTime;
+            float linearT = timePassed / laserGrowTime;
+
+            //Sprite
+            spriteRenderer.size = new Vector2(Mathf.Lerp(1f, laserRange, linearT), 1f);
+
+            //Collider
+            myCapsuleCollider.size = new Vector2(Mathf.Lerp(1f, laserRange, linearT), myCapsuleCollider.size.y);
+            myCapsuleCollider.offset = new Vector2((Mathf.Lerp(1f, laserRange, linearT)) / 2, myCapsuleCollider.offset.y);
+
+            yield return null;
+        }
+        Destroy(myCapsuleCollider);
+        StartCoroutine(GetComponent<SpriteFade>().SlowFadeRoutine());
+    }
+
+    private void LaserFaceMouse()
+    {
+        Vector3 mousePosition = Input.mousePosition;
+        mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+        Vector2 direction = transform.position - mousePosition;
+        transform.right = -direction;
     }
 }
