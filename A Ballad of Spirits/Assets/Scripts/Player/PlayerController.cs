@@ -20,6 +20,7 @@ public class PlayerController : Singleton<PlayerController>
     Animator myAnimator;
     SpriteRenderer mySpriteRenderer;
     Rigidbody2D rb;
+    Knockback knockback;
     PlayerControls playerControls;
 
     protected override void Awake()
@@ -29,6 +30,7 @@ public class PlayerController : Singleton<PlayerController>
         myAnimator = GetComponent<Animator>();
         mySpriteRenderer = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
+        knockback = GetComponent<Knockback>();
         playerControls = new PlayerControls();
         defaultMoveSpeed = moveSpeed;
     }
@@ -69,6 +71,8 @@ public class PlayerController : Singleton<PlayerController>
 
     void Move()
     {
+        if (knockback.GettingKnockedBack) { return; }
+
         rb.MovePosition(rb.position + movement * (moveSpeed * Time.fixedDeltaTime));
     }
 
