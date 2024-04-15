@@ -7,6 +7,8 @@ public class Bow : MonoBehaviour, IWeapon
     [SerializeField] WeaponSO weaponInfo;
     [SerializeField] GameObject arrowPrefab;
     [SerializeField] Transform arrowSpawnpoint;
+    [SerializeField] Transform arrowSpawnpoint2;
+    [SerializeField] Transform arrowSpawnpoint3;
 
     Animator myAnimator;
 
@@ -20,8 +22,22 @@ public class Bow : MonoBehaviour, IWeapon
     public void Attack()
     {
         myAnimator.SetTrigger(FIRE_HASH);
-        GameObject newArrow = Instantiate(arrowPrefab, arrowSpawnpoint.position, ActiveWeapon.Instance.transform.rotation);
-        newArrow.GetComponent<Projectile>().UpdateWeaponInfo(weaponInfo);
+        int multishot = Random.Range(1, 100);
+
+        if (multishot <= 66)
+        {
+            GameObject newArrow = Instantiate(arrowPrefab, arrowSpawnpoint.position, ActiveWeapon.Instance.transform.rotation);
+            newArrow.GetComponent<Projectile>().UpdateWeaponInfo(weaponInfo);
+        }
+        else if (multishot >= 67)
+        {
+            GameObject newArrow = Instantiate(arrowPrefab, arrowSpawnpoint.position, ActiveWeapon.Instance.transform.rotation);
+            newArrow.GetComponent<Projectile>().UpdateWeaponInfo(weaponInfo);
+            GameObject newArrow2 = Instantiate(arrowPrefab, arrowSpawnpoint2.position, ActiveWeapon.Instance.transform.rotation);
+            newArrow2.GetComponent<Projectile>().UpdateWeaponInfo(weaponInfo);
+            GameObject newArrow3 = Instantiate(arrowPrefab, arrowSpawnpoint3.position, ActiveWeapon.Instance.transform.rotation);
+            newArrow3.GetComponent<Projectile>().UpdateWeaponInfo(weaponInfo);
+        }
     }
 
     public WeaponSO GetWeaponInfo()

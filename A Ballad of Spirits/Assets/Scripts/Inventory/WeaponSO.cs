@@ -9,4 +9,5 @@ public class WeaponSO : ScriptableObject
     public float weaponCooldown;
     public float weaponDamage;
     public float weaponRange;
+    public float weaponKnockback;
 }

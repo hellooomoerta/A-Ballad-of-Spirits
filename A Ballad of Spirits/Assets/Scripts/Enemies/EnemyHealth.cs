@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] int startingHealth = 3;
-    [SerializeField] float knockBackPower = 30f;
+    //[SerializeField] float knockBackPower = 30f;
     [SerializeField] GameObject deathVFXPrefab;
 
     float currentHealth;
@@ -23,10 +23,10 @@ public class EnemyHealth : MonoBehaviour
         currentHealth = startingHealth;
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(float damage, float knockbackAmount)
     {
         currentHealth -= damage;
-        knockback.GetKnockedBack(PlayerController.Instance.transform, knockBackPower);
+        knockback.GetKnockedBack(PlayerController.Instance.transform, knockbackAmount);
         StartCoroutine(flash.FlashRoutine());
         StartCoroutine(CheckDetectDeathRoutine());
     }

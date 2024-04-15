@@ -16,3 +16,4 @@ MonoBehaviour:
   weaponCooldown: 0.2
   weaponDamage: 1
   weaponRange: 0
+  weaponKnockback: 30
