@@ -8,7 +8,7 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] float knockBackPower = 30f;
     [SerializeField] GameObject deathVFXPrefab;
 
-    int currentHealth;
+    float currentHealth;
     Knockback knockback;
     Flash flash;
 
@@ -23,7 +23,7 @@ public class EnemyHealth : MonoBehaviour
         currentHealth = startingHealth;
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         currentHealth -= damage;
         knockback.GetKnockedBack(PlayerController.Instance.transform, knockBackPower);
