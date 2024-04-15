@@ -101,6 +101,9 @@ GameObject:
   - component: {fileID: 1091177823586385721}
   - component: {fileID: 7960750029891970866}
   - component: {fileID: 3278744382385083324}
+  - component: {fileID: 4116168430358868027}
+  - component: {fileID: 8798895553298747020}
+  - component: {fileID: 2892512920702652329}
   m_Layer: 0
   m_Name: Slime
   m_TagString: Untagged
@@ -250,6 +253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af93e704af8b8244daab60632d1bcba8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  roamChangeDirectionFloat: 2
 --- !u!114 &1171607294074719886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -276,6 +280,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 3
+  knockBackPower: 30
   deathVFXPrefab: {fileID: 5478252797539926980, guid: 2d69477c6fa5543429cd21747fe0e15a, type: 3}
 --- !u!114 &7960750029891970866
 MonoBehaviour:
@@ -304,3 +309,48 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whiteFlashMaterial: {fileID: 2100000, guid: c04efa0747a64f04d9cd6fccb348d673, type: 2}
   restoreDefaultMaterialTime: 0.1
+--- !u!95 &4116168430358868027
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5511947214333991060}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 445bd7351f7b74f45b86cf506e3ce676, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8798895553298747020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5511947214333991060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba51dc133c46e144aa0d34fb7bc703a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!210 &2892512920702652329
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5511947214333991060}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortAtRoot: 0
