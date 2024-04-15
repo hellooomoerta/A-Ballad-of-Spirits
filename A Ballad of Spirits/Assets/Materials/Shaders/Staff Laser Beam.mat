@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: White Glow
+  m_Name: Staff Laser Beam
   m_Shader: {fileID: -6465566751694194690, guid: 0248e1aea767fde49a04bfb8bf06bf13, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -42,9 +42,9 @@ Material:
     m_Ints: []
     m_Floats: []
     m_Colors:
-    - _Color: {r: 2.9960785, g: 2.9960785, b: 2.9960785, a: 0}
+    - _Color: {r: 0, g: 1.0262816, b: 5.9921565, a: 0}
   m_BuildTextureStacks: []
---- !u!114 &2228432825750686081
+--- !u!114 &4721586298137339635
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
