@@ -18,6 +18,19 @@ public class Shooter : MonoBehaviour, IEnemy
 
     private bool isShooting = false;
 
+    private void OnValidate()
+    {
+        if (oscillate) { stagger = true; }
+        if (!oscillate) { stagger = false; }
+        if (projectilesPerBurst < 1) { projectilesPerBurst = 1; }
+        if (burstCount < 1) { burstCount = 1; }
+        if (timeBetweenBursts < 0.1f) { timeBetweenBursts = 0.1f; }
+        if (attackCooldown < 0.1f) { attackCooldown = 0.1f; }
+        if (startingDistance < 0.1f) { startingDistance = 0.1f; }
+        if (angleSpread == 0) { projectilesPerBurst = 1; }
+        if (bulletMoveSpeed < 0.5) { bulletMoveSpeed = 0.5f; }
+    }
+
     public void Attack()
     {
         if (!isShooting)
