@@ -27,6 +27,11 @@ public class Projectile : MonoBehaviour
         this.projectileRange = projectileRange;
     }
 
+    public void UpdateProjectileMoveSpeed(float moveSpeed)
+    {
+        this.moveSpeed = moveSpeed;
+    }
+
     void MoveProjectile()
     {
         transform.Translate(transform.right * Time.deltaTime * moveSpeed, Space.World);
