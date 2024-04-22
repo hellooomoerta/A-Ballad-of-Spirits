@@ -162,6 +162,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 8
-  projectileRange: 10
+  projectileRange: 30
   isEnemyProjectile: 1
   particelOnHitPrefabVFX: {fileID: 5478252797539926980, guid: 66512c1ae9a331f448cf4817c79ef74a, type: 3}
