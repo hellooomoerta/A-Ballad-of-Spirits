@@ -27,23 +27,23 @@ public class Bow : MonoBehaviour, IWeapon
         if (multishot == 1)
         {
             GameObject newArrow = Instantiate(arrowPrefab, arrowSpawnpoint.position, ActiveWeapon.Instance.transform.rotation);
-            newArrow.GetComponent<Projectile>().UpdateWeaponInfo(weaponInfo);
+            newArrow.GetComponent<Projectile>().UpdateProjectileRange(weaponInfo.weaponRange);
         }
         else if (multishot == 2)
         {
             GameObject newArrow = Instantiate(arrowPrefab, arrowSpawnpoint.position, ActiveWeapon.Instance.transform.rotation);
-            newArrow.GetComponent<Projectile>().UpdateWeaponInfo(weaponInfo);
+            newArrow.GetComponent<Projectile>().UpdateProjectileRange(weaponInfo.weaponRange);
             GameObject newArrow2 = Instantiate(arrowPrefab, arrowSpawnpoint2.position, ActiveWeapon.Instance.transform.rotation);
-            newArrow2.GetComponent<Projectile>().UpdateWeaponInfo(weaponInfo);
+            newArrow2.GetComponent<Projectile>().UpdateProjectileRange(weaponInfo.weaponRange);
         }
         else if (multishot == 3)
         {
             GameObject newArrow = Instantiate(arrowPrefab, arrowSpawnpoint.position, ActiveWeapon.Instance.transform.rotation);
-            newArrow.GetComponent<Projectile>().UpdateWeaponInfo(weaponInfo);
+            newArrow.GetComponent<Projectile>().UpdateProjectileRange(weaponInfo.weaponRange);
             GameObject newArrow2 = Instantiate(arrowPrefab, arrowSpawnpoint2.position, ActiveWeapon.Instance.transform.rotation);
-            newArrow2.GetComponent<Projectile>().UpdateWeaponInfo(weaponInfo);
+            newArrow2.GetComponent<Projectile>().UpdateProjectileRange(weaponInfo.weaponRange);
             GameObject newArrow3 = Instantiate(arrowPrefab, arrowSpawnpoint3.position, ActiveWeapon.Instance.transform.rotation);
-            newArrow3.GetComponent<Projectile>().UpdateWeaponInfo(weaponInfo);
+            newArrow3.GetComponent<Projectile>().UpdateProjectileRange(weaponInfo.weaponRange);
         }
     }
 

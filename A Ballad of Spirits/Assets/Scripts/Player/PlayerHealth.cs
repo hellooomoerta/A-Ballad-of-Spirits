@@ -24,8 +24,12 @@ public class PlayerHealth : MonoBehaviour
         currentHealth = maxHealth;
     }
 
-    private void TakeDamage(float damageAmount)
+    public void TakeDamage(float damageAmount, Transform hitTransform)
     {
+        if (!canTakeDamage) { return; }
+
+        knockback.GetKnockedBack(hitTransform, knockbackThrustAmount);
+        StartCoroutine(flash.FlashRoutine());
         canTakeDamage = false;
         currentHealth -= damageAmount;
         StartCoroutine(DamageRecoveryRoutine());
@@ -41,11 +45,9 @@ public class PlayerHealth : MonoBehaviour
     {
         EnemyAI enemy = other.gameObject.GetComponent<EnemyAI>();
 
-        if (enemy && canTakeDamage)
+        if (enemy)
         {
-            TakeDamage(1);
-            knockback.GetKnockedBack(other.gameObject.transform, knockbackThrustAmount);
-            StartCoroutine(flash.FlashRoutine());
+            TakeDamage(1, other.transform);
         }
     }
 }
