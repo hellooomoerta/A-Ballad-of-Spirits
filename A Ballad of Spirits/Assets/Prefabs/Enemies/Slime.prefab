@@ -254,6 +254,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roamChangeDirectionFloat: 2
+  attackRange: 0
+  attackCooldown: 2
+  stopMovingWhileAttacking: 0
+  enemyType: {fileID: 0}
 --- !u!114 &1171607294074719886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -280,7 +284,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 3
-  knockBackPower: 30
   deathVFXPrefab: {fileID: 5478252797539926980, guid: 2d69477c6fa5543429cd21747fe0e15a, type: 3}
 --- !u!114 &7960750029891970866
 MonoBehaviour:
