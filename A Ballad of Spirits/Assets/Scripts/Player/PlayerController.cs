@@ -38,6 +38,9 @@ public class PlayerController : Singleton<PlayerController>
     private void Start()
     {
         playerControls.Movement.Dash.performed += _ => Dash();
+
+        ActiveInventory.Instance.EquipStartingWeapon();
+        CameraController.Instance.SetPlayerCameraFollow();
     }
 
     private void Update()
@@ -71,7 +74,7 @@ public class PlayerController : Singleton<PlayerController>
 
     void Move()
     {
-        if (knockback.GettingKnockedBack) { return; }
+        if (knockback.GettingKnockedBack || PlayerHealth.Instance.isDead) { return; }
 
         rb.MovePosition(rb.position + movement * (moveSpeed * Time.fixedDeltaTime));
     }
@@ -118,5 +121,10 @@ public class PlayerController : Singleton<PlayerController>
     private void OnEnable()
     {
         playerControls.Enable();
+    }
+
+    private void OnDisable()
+    {
+        playerControls.Disable();
     }
 }
