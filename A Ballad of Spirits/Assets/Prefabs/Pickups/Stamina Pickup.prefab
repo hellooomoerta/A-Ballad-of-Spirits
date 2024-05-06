@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5035208583820898696
+--- !u!1 &7759454439152393430
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,40 +8,40 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7254326471746962069}
-  - component: {fileID: 8191088584353615911}
-  - component: {fileID: 5931256643127040712}
-  - component: {fileID: 798121662438501056}
-  - component: {fileID: -6418561217617600184}
+  - component: {fileID: 2052597070717507021}
+  - component: {fileID: 3519015121508978811}
+  - component: {fileID: 7476009857295371600}
+  - component: {fileID: 56791505186091725}
+  - component: {fileID: -5976869330180945654}
   m_Layer: 0
-  m_Name: Bush
+  m_Name: Stamina Pickup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7254326471746962069
+--- !u!4 &2052597070717507021
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5035208583820898696}
+  m_GameObject: {fileID: 7759454439152393430}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.5237699, y: -0.5108115, z: 0}
+  m_LocalPosition: {x: 0.4699936, y: 4.4174304, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &8191088584353615911
+--- !u!212 &3519015121508978811
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5035208583820898696}
+  m_GameObject: {fileID: 7759454439152393430}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -55,7 +55,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: efa940bb0fbeded409bf8ffa6df2f346, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: edc1352acef7ee341872db14b49b61f8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 881dab51b79bb5649b42a9d064c3500d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -87,13 +87,13 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!70 &5931256643127040712
+--- !u!70 &7476009857295371600
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5035208583820898696}
+  m_GameObject: {fileID: 7759454439152393430}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -116,37 +116,87 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0062082075, y: 0.037250374}
-  m_Size: {x: 0.9503346, y: 0.92550236}
-  m_Direction: 1
---- !u!114 &798121662438501056
+  m_Offset: {x: -0.0023102164, y: 0.002310276}
+  m_Size: {x: 0.3484826, y: 0.49634457}
+  m_Direction: 0
+--- !u!50 &56791505186091725
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7759454439152393430}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &-5976869330180945654
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5035208583820898696}
+  m_GameObject: {fileID: 7759454439152393430}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1cde13ddb331c624ca9e2fa16673de0a, type: 3}
+  m_Script: {fileID: 11500000, guid: 576c815f0e1973541bc23a84501fe4de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyVFX: {fileID: 7501250426993817200, guid: 7d627578ee7b5fe418573a0633e2bfa7, type: 3}
---- !u!114 &-6418561217617600184
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5035208583820898696}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 859c1614206cd134d94cf61c0d466500, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  goldCoinPrefab: {fileID: 7759454439152393430, guid: de1a562c1efc30a4181c5e940587616e, type: 3}
-  healthGlobePrefab: {fileID: 7759454439152393430, guid: 1bb7313fe0c6c544abfd6b193b08c438, type: 3}
-  staminaGlobePrefab: {fileID: 7759454439152393430, guid: f6755f8c297cef74a9e7761a9ab93f58, type: 3}
+  pickUpType: 2
+  pickupDistance: 4
+  moveSpeed: 5
+  accelerationRate: 2
+  animCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.54233927
+      value: 0.72619253
+      inSlope: -0.009883838
+      outSlope: -0.009883838
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.49538442
+    - serializedVersion: 3
+      time: 1.0004089
+      value: 0.0027119499
+      inSlope: -3.4158478
+      outSlope: -3.4158478
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.095079586
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  heightY: 1.5
+  popDuration: 0.5
