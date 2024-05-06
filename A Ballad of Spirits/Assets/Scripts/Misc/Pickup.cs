@@ -102,7 +102,7 @@ public class Pickups : MonoBehaviour
                 PlayerHealth.Instance.HealPlayer();
                 break;
             case PickUpType.StaminaPickUp:
-                //do stuff
+                Stamina.Instance.RefreshStamina();
                 break;
         }
     }
