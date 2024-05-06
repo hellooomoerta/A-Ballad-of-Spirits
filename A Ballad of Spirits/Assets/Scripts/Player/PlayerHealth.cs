@@ -15,6 +15,8 @@ public class PlayerHealth : Singleton<PlayerHealth>
     private Knockback knockback;
     private Flash flash;
 
+    const string HEALTH_AMOUNT = "Health Slider";
+
     protected override void Awake()
     {
         base.Awake();
@@ -58,7 +60,6 @@ public class PlayerHealth : Singleton<PlayerHealth>
         if (currentHealth <= 0)
         {
             currentHealth = 0;
-            Debug.Log("You are now a ghost. RIP.");
         }
     }
 
@@ -72,7 +73,7 @@ public class PlayerHealth : Singleton<PlayerHealth>
     {
         if (healthSlider == null)
         {
-            healthSlider = GameObject.Find("Health Slider").GetComponent<Slider>();
+            healthSlider = GameObject.Find(HEALTH_AMOUNT).GetComponent<Slider>();
         }
 
         healthSlider.maxValue = maxHealth;
