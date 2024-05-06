@@ -43,7 +43,7 @@ public class Pickups : MonoBehaviour
         }
         else
         {
-            if (moveSpeed > 0)
+            if (moveSpeed > 0f)
             {
                 moveSpeed = moveSpeed - (accelerationRate * 2);
             }
@@ -103,6 +103,8 @@ public class Pickups : MonoBehaviour
                 break;
             case PickUpType.StaminaPickUp:
                 Stamina.Instance.RefreshStamina();
+                break;
+            default:
                 break;
         }
     }
